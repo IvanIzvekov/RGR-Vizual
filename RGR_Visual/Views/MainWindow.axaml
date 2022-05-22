@@ -1,0 +1,370 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:RGR_Visual.ViewModels"
+		MaxWidth="1500"
+		MaxHeight="800"
+		MinWidth="1500"
+		MinHeight="800"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="RGR_Visual.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Nascar IP-017 Izvekov Ivan">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+	<Grid RowDefinitions="*,Auto">
+		
+		<ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
+			<TabControl Name="Tables" TabStripPlacement="Right">
+				<TabItem Header="Водитель" FontSize="18">
+					<DataGrid Name="Drivers" Items="{Binding Drivers}" CanUserResizeColumns="True">
+						<DataGrid.Columns>
+							<DataGridTemplateColumn Header="ID">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Border BorderBrush="Black" BorderThickness="0.2">
+											<TextBlock Text="{Binding Id}" TextAlignment="Center"/>
+										</Border>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+								<DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<TextBox Text="{Binding Id}"/>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellEditingTemplate>
+							</DataGridTemplateColumn>
+							<DataGridTemplateColumn Header="Имя">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Border BorderBrush="Black" BorderThickness="0.2">
+											<TextBlock Text="{Binding Name}" TextAlignment="Center"/>
+										</Border>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+								<DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<TextBox Text="{Binding Name}"/>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellEditingTemplate>
+							</DataGridTemplateColumn>
+							<DataGridTemplateColumn Header="Дата Рождения">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Border BorderBrush="Black" BorderThickness="0.2">
+											<TextBlock Text="{Binding Born}" TextAlignment="Center"/>
+										</Border>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+								<DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<NumericUpDown Value="{Binding Born}"/>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellEditingTemplate>
+							</DataGridTemplateColumn>
+							<DataGridTemplateColumn Header="Место Рождения">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Border BorderBrush="Black" BorderThickness="0.2">
+											<TextBlock Text="{Binding Home}" TextAlignment="Center"/>
+										</Border>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+								<DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<TextBox Text="{Binding Home}"/>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellEditingTemplate>
+							</DataGridTemplateColumn>
+						</DataGrid.Columns>
+					</DataGrid>
+				</TabItem>
+				<TabItem Header="Владелец" FontSize="18">
+					<DataGrid Name="Owners" Items="{Binding Owners}" CanUserResizeColumns="True">
+						<DataGrid.Columns>
+							<DataGridTemplateColumn Header="ID">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Border BorderBrush="Black" BorderThickness="0.2">
+											<TextBlock Text="{Binding Id}" TextAlignment="Center"/>
+										</Border>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+								<DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<TextBox Text="{Binding Id}"/>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellEditingTemplate>
+							</DataGridTemplateColumn>
+							<DataGridTemplateColumn Header="Имя">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Border BorderBrush="Black" BorderThickness="0.2">
+											<TextBlock Text="{Binding Name}" TextAlignment="Center"/>
+										</Border>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+								<DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<TextBox Text="{Binding Name}"/>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellEditingTemplate>
+							</DataGridTemplateColumn>
+						</DataGrid.Columns>
+					</DataGrid>
+				</TabItem>
+				<TabItem Header="Заезды" FontSize="18">
+					<DataGrid Name="Races" Items="{Binding Races}" CanUserResizeColumns="True">
+						<DataGrid.Columns>
+							<DataGridTemplateColumn Header="ID">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Border BorderBrush="Black" BorderThickness="0.2">
+											<TextBlock Text="{Binding Id}" TextAlignment="Center"/>
+										</Border>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+								<DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<TextBox Text="{Binding Id}"/>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellEditingTemplate>
+							</DataGridTemplateColumn>
+							<DataGridTemplateColumn Header="Дата">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Border BorderBrush="Black" BorderThickness="0.2">
+											<TextBlock Text="{Binding Date}" TextAlignment="Center"/>
+										</Border>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+								<DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<TextBox Text="{Binding Date}"/>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellEditingTemplate>
+							</DataGridTemplateColumn>
+							<DataGridTemplateColumn Header="Трасса">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Border BorderBrush="Black" BorderThickness="0.2">
+											<TextBlock Text="{Binding Trace}" TextAlignment="Center"/>
+										</Border>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+								<DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<TextBox Text="{Binding Trace}"/>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellEditingTemplate>
+							</DataGridTemplateColumn>
+							<DataGridTemplateColumn Header="Кол-во машин">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Border BorderBrush="Black" BorderThickness="0.2">
+											<TextBlock Text="{Binding Cars}" TextAlignment="Center"/>
+										</Border>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+								<DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<TextBox Text="{Binding Cars}"/>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellEditingTemplate>
+							</DataGridTemplateColumn>
+							<DataGridTemplateColumn Header="Длинна заезда">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Border BorderBrush="Black" BorderThickness="0.2">
+											<TextBlock Text="{Binding Len}" TextAlignment="Center"/>
+										</Border>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+								<DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<TextBox Text="{Binding Len}"/>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellEditingTemplate>
+							</DataGridTemplateColumn>
+							<DataGridTemplateColumn Header="Кол-во кругов">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Border BorderBrush="Black" BorderThickness="0.2">
+											<TextBlock Text="{Binding Laps}" TextAlignment="Center"/>
+										</Border>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+								<DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<TextBox Text="{Binding Laps}"/>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellEditingTemplate>
+							</DataGridTemplateColumn>
+							<DataGridTemplateColumn Header="Турнир">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Border BorderBrush="Black" BorderThickness="0.2">
+											<TextBlock Text="{Binding IdTournament}" TextAlignment="Center"/>
+										</Border>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+								<DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<TextBox Text="{Binding IdTournament}"/>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellEditingTemplate>
+							</DataGridTemplateColumn>
+						</DataGrid.Columns>
+					</DataGrid>
+				</TabItem>
+				<TabItem Header="Турнир" FontSize="18">
+					<DataGrid Name="Tournaments" Items="{Binding Tournaments}" CanUserResizeColumns="True">
+						<DataGrid.Columns>
+							<DataGridTemplateColumn Header="ID">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Border BorderBrush="Black" BorderThickness="0.2">
+											<TextBlock Text="{Binding Id}" TextAlignment="Center"/>
+										</Border>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+								<DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<TextBox Text="{Binding Id}"/>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellEditingTemplate>
+							</DataGridTemplateColumn>
+							<DataGridTemplateColumn Header="Название" Width="400">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Border BorderBrush="Black" BorderThickness="0.2">
+											<TextBlock Text="{Binding Name}" TextAlignment="Center"/>
+										</Border>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+								<DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<TextBox Text="{Binding Name}"/>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellEditingTemplate>
+							</DataGridTemplateColumn>
+						</DataGrid.Columns>
+					</DataGrid>
+				</TabItem>
+				<TabItem Header="Результаты" FontSize="18">
+					<DataGrid Name="Results" Items="{Binding Results}" CanUserResizeColumns="True">
+						<DataGrid.Columns>
+							<DataGridTemplateColumn Header="ID">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Border BorderBrush="Black" BorderThickness="0.2">
+											<TextBlock Text="{Binding Id}" TextAlignment="Center"/>
+										</Border>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+								<DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<TextBox Text="{Binding Id}"/>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellEditingTemplate>
+							</DataGridTemplateColumn>
+							<DataGridTemplateColumn Header="Водитель">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Border BorderBrush="Black" BorderThickness="0.2">
+											<TextBlock Text="{Binding IdDriver}" TextAlignment="Center"/>
+										</Border>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+								<DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<TextBox Text="{Binding IdDriver}"/>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellEditingTemplate>
+							</DataGridTemplateColumn>
+							<DataGridTemplateColumn Header="ID Заезда">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Border BorderBrush="Black" BorderThickness="0.2">
+											<TextBlock Text="{Binding IdRace}" TextAlignment="Center"/>
+										</Border>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+								<DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<TextBox Text="{Binding IdRace}"/>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellEditingTemplate>
+							</DataGridTemplateColumn>
+							<DataGridTemplateColumn Header="Владелец">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Border BorderBrush="Black" BorderThickness="0.2">
+											<TextBlock Text="{Binding IdOwner}" TextAlignment="Center"/>
+										</Border>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+								<DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<TextBox Text="{Binding IdOwner}"/>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellEditingTemplate>
+							</DataGridTemplateColumn>
+							<DataGridTemplateColumn Header="Стартовая поз.">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Border BorderBrush="Black" BorderThickness="0.2">
+											<TextBlock Text="{Binding StartPos}" TextAlignment="Center"/>
+										</Border>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+								<DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<TextBox Text="{Binding StartPos}"/>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellEditingTemplate>
+							</DataGridTemplateColumn>
+							<DataGridTemplateColumn Header="Финишная поз.">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Border BorderBrush="Black" BorderThickness="0.2">
+											<TextBlock Text="{Binding FinishPos}" TextAlignment="Center"/>
+										</Border>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+								<DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<TextBox Text="{Binding FinishPos}"/>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellEditingTemplate>
+							</DataGridTemplateColumn>
+							<DataGridTemplateColumn Header="Номер машины">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Border BorderBrush="Black" BorderThickness="0.2">
+											<TextBlock Text="{Binding Number}" TextAlignment="Center"/>
+										</Border>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+								<DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<TextBox Text="{Binding Number}"/>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellEditingTemplate>
+							</DataGridTemplateColumn>
+						</DataGrid.Columns>
+					</DataGrid>
+				</TabItem>
+			</TabControl>
+		</ScrollViewer>
+		<Grid Grid.Row="1" ColumnDefinitions="*,*,*,*,*,*">
+			<Button Content="Добавить строку" Command="{Binding AddRow}" CommandParameter="{Binding #Tables.SelectedIndex}" Grid.Column="0" Height="40" Width="241"/>
+			<Button Content="Удалить строку" Grid.Column="1" Name="DeleteBtn" Height="40" Width="241"/>
+			<Button Content="Сохранить изменения" Command="{Binding Save}" Grid.Column="2" Grid.ColumnSpan="3" Height="40" Width="483"/>
+			<Button Content="Менеджер запросов" Grid.Column="4" Grid.ColumnSpan="5" Height="40" Width="483"/>
+		</Grid>
+	</Grid>
+</Window>
