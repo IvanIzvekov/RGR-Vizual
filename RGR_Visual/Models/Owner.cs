@@ -9,6 +9,11 @@ namespace RGR_Visual
         {
             Results = new HashSet<Result>();
         }
+        public Owner(long i)
+        {
+            Id = i;
+            Results = new HashSet<Result>();
+        }
 
         public long Id { get; set; }
         public string Name { get; set; } = null!;

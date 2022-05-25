@@ -61,7 +61,7 @@
 								</DataGridTemplateColumn.CellTemplate>
 								<DataGridTemplateColumn.CellEditingTemplate>
 									<DataTemplate>
-										<NumericUpDown Value="{Binding Born}"/>
+										<TextBox Text="{Binding Born}"/>
 									</DataTemplate>
 								</DataGridTemplateColumn.CellEditingTemplate>
 							</DataGridTemplateColumn>
@@ -360,11 +360,12 @@
 				</TabItem>
 			</TabControl>
 		</ScrollViewer>
-		<Grid Grid.Row="1" ColumnDefinitions="*,*,*,*,*,*">
-			<Button Content="Добавить строку" Command="{Binding AddRow}" CommandParameter="{Binding #Tables.SelectedIndex}" Grid.Column="0" Height="40" Width="241"/>
-			<Button Content="Удалить строку" Grid.Column="1" Name="DeleteBtn" Height="40" Width="241"/>
-			<Button Content="Сохранить изменения" Command="{Binding Save}" Grid.Column="2" Grid.ColumnSpan="3" Height="40" Width="483"/>
-			<Button Content="Менеджер запросов" Grid.Column="4" Grid.ColumnSpan="5" Height="40" Width="483"/>
+		<Grid Grid.Row="1" ColumnDefinitions="*,*,*,*,*,*,*">
+			<Button Content="Добавить строку" Command="{Binding AddRow}" CommandParameter="{Binding #Tables.SelectedIndex}" Grid.Column="0" Height="40" Width="210"/>
+			<Button Content="Удалить строку" Grid.Column="1" Name="DeleteBtn" Height="40" Width="210"/>
+			<Button Content="Сохранить изменения" Command="{Binding Save}" Grid.Column="2" Grid.ColumnSpan="3" Height="40" Width="420"/>
+			<Button Content="Менеджер запросов" Grid.Column="4" Grid.ColumnSpan="5" Height="40" Width="420"/>
+			<TextBlock Text="{Binding SaveError}" Foreground="Red" HorizontalAlignment="Center" Grid.Column="6"></TextBlock>
 		</Grid>
 	</Grid>
 </Window>

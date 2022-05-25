@@ -72,6 +72,11 @@ namespace RGR_Visual
                 entity.Property(e => e.Len).HasColumnName("len");
 
                 entity.Property(e => e.Trace).HasColumnName("trace");
+
+                entity.HasOne(d => d.TournamentNavigation)
+                    .WithMany(p => p.Races)
+                    .HasForeignKey(d => d.IdTournament)
+                    .OnDelete(DeleteBehavior.Cascade);
             });
 
             modelBuilder.Entity<Result>(entity =>
@@ -94,15 +99,18 @@ namespace RGR_Visual
 
                 entity.HasOne(d => d.IdDriverNavigation)
                     .WithMany(p => p.Results)
-                    .HasForeignKey(d => d.IdDriver);
+                    .HasForeignKey(d => d.IdDriver)
+                    .OnDelete(DeleteBehavior.Cascade);
 
                 entity.HasOne(d => d.IdOwnerNavigation)
                     .WithMany(p => p.Results)
-                    .HasForeignKey(d => d.IdOwner);
+                    .HasForeignKey(d => d.IdOwner)
+                    .OnDelete(DeleteBehavior.Cascade);
 
                 entity.HasOne(d => d.IdRaceNavigation)
                     .WithMany(p => p.Results)
-                    .HasForeignKey(d => d.IdRace);
+                    .HasForeignKey(d => d.IdRace)
+                    .OnDelete(DeleteBehavior.Cascade);
             });
 
             modelBuilder.Entity<Tournament>(entity =>

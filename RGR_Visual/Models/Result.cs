@@ -5,6 +5,15 @@ namespace RGR_Visual
 {
     public partial class Result
     {
+        public Result()
+        {
+            
+        }
+        public Result(long i)
+        {
+            Id = i;
+        }
+
         public long Id { get; set; }
         public long? IdDriver { get; set; }
         public long? IdRace { get; set; }

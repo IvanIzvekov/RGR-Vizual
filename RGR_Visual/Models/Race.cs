@@ -10,6 +10,12 @@ namespace RGR_Visual
             Results = new HashSet<Result>();
         }
 
+        public Race(long i)
+        {
+            Id = i;
+            Results = new HashSet<Result>();
+        }
+
         public long Id { get; set; }
         public string? Date { get; set; }
         public string? Trace { get; set; }
@@ -20,5 +26,6 @@ namespace RGR_Visual
         
 
         public virtual ICollection<Result> Results { get; set; }
+        public virtual Tournament?  TournamentNavigation { get; set; }
     }
 }
