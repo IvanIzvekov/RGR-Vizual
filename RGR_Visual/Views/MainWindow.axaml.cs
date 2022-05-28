@@ -4,14 +4,21 @@ using RGR_Visual.ViewModels;
 namespace RGR_Visual.Views
 {
     public partial class MainWindow : Window
-    {
+    {       
+        QueryManager editor;
+        QueryManagerViewModel context;
         public MainWindow()
         {
             InitializeComponent();
-            this.FindControl<Button>("DeleteBtn").Click += delegate
+            this.FindControl<Button>("DeleteButton").Click += delegate
             {
                 Delete();
             };
+            this.FindControl<Button>("QueryButton").Click += delegate
+            {
+                OpenEditor();
+            };
+            context = new QueryManagerViewModel();
         }
 
         public void Delete()
@@ -37,6 +44,11 @@ namespace RGR_Visual.Views
                     context.Db.Results.Remove((Result)this.FindControl<DataGrid>("Results").SelectedItem);
                     break;
             }
+        }
+        public void OpenEditor()
+        {
+            editor = new QueryManager { DataContext = context };
+            editor.Show();
         }
     }
 }

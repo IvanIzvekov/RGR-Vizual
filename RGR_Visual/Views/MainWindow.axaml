@@ -17,7 +17,6 @@
     </Design.DataContext>
 
 	<Grid RowDefinitions="*,Auto">
-		
 		<ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
 			<TabControl Name="Tables" TabStripPlacement="Right">
 				<TabItem Header="Водитель" FontSize="18">
@@ -360,12 +359,12 @@
 				</TabItem>
 			</TabControl>
 		</ScrollViewer>
-		<Grid Grid.Row="1" ColumnDefinitions="*,*,*,*,*,*,*">
-			<Button Content="Добавить строку" Command="{Binding AddRow}" CommandParameter="{Binding #Tables.SelectedIndex}" Grid.Column="0" Height="40" Width="210"/>
-			<Button Content="Удалить строку" Grid.Column="1" Name="DeleteBtn" Height="40" Width="210"/>
-			<Button Content="Сохранить изменения" Command="{Binding Save}" Grid.Column="2" Grid.ColumnSpan="3" Height="40" Width="420"/>
-			<Button Content="Менеджер запросов" Grid.Column="4" Grid.ColumnSpan="5" Height="40" Width="420"/>
-			<TextBlock Text="{Binding SaveError}" Foreground="Red" HorizontalAlignment="Center" Grid.Column="6"></TextBlock>
-		</Grid>
+		<StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Right">
+			<Button Content="Query Manager" Name="QueryButton" Margin="5" Height="30" Width="120"/>
+			<Button Content="Add Row" Margin="5" Command="{Binding AddRow}" CommandParameter="{Binding #Tables.SelectedIndex}" Height="30" Width="120"/>
+			<Button Content="Delete Row" Margin="5" Name="DeleteButton" Height="30" Width="120"/>
+			<Button Content="Save" Margin="5" Command="{Binding Save}" Height="30" Width="120"/>
+			<TextBlock Text="{Binding SaveError}"  Margin="5" Foreground="Red" HorizontalAlignment="Center" Height="30" Width="120"/>
+		</StackPanel>
 	</Grid>
 </Window>
