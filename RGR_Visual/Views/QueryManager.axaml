@@ -10,6 +10,8 @@
         x:Class="RGR_Visual.Views.QueryManager"
 		Icon="/Assets/avalonia-logo.ico"
         Title="QueryManager">
+
+
 	<SplitView IsPaneOpen="True" OpenPaneLength="200" DisplayMode="Inline">
 		<SplitView.Pane>
 			<StackPanel>
@@ -34,7 +36,20 @@
 				<ListBox Grid.Row="1" Name="Chosen" Items="{Binding ChosenTables}" SelectedItem="{Binding SelectedChosen}"/>
 			</Grid>
 			<TextBlock Text="Столбцы:" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-			<ComboBox Grid.Row="1" Grid.Column="1" Items="{Binding Rows}"/>
+			<Grid RowDefinitions="Auto,*" Grid.Row="1" Grid.Column="1">
+				<TextBlock Text="Доступные:" Grid.Row="0"/>
+				<ScrollViewer Grid.Row="1">
+					<ListBox Items="{Binding Rows}" SelectedItem="{Binding SelectedRow}"/>
+				</ScrollViewer>
+			</Grid>
+			<StackPanel Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+				<Button Content="Добавить" HorizontalAlignment="Stretch" Command="{Binding ChooseRow}"/>
+				<Button Content="Удалить" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Command="{Binding DeleteRow}"/>
+			</StackPanel>
+			<Grid RowDefinitions="Auto,*" Grid.Row="1" Grid.Column="3">
+				<TextBlock Grid.Row="0" Text="Выбранные:" HorizontalAlignment="Center"/>
+				<ListBox Grid.Row="1" Items="{Binding ChosenRows}" SelectedItem="{Binding SelectedRowChosen}"/>
+			</Grid>
 			<ComboBox SelectedIndex="0" Grid.Row="2" Grid.Column="0">
 				<ComboBoxItem>Условие выборки</ComboBoxItem>
 				<ComboBoxItem>Группировать по:</ComboBoxItem>

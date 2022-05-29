@@ -25,5 +25,9 @@ namespace RGR_Visual
         public virtual Driver? IdDriverNavigation { get; set; }
         public virtual Owner? IdOwnerNavigation { get; set; }
         public virtual Race? IdRaceNavigation { get; set; }
+        public static string[] GetAttr()
+        {
+            return new[] { "IDResult","StartPos", "FinishPos", "Number" };
+        }
     }
 }

@@ -16,9 +16,10 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-	<Grid RowDefinitions="*,Auto">
+	<Grid RowDefinitions="*,Auto,100">
 		<ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
-			<TabControl Name="Tables" TabStripPlacement="Right">
+			<Grid ColumnDefinitions="Auto,*">
+			<TabControl Name="Tables" TabStripPlacement="Top">
 				<TabItem Header="Водитель" FontSize="18">
 					<DataGrid Name="Drivers" Items="{Binding Drivers}" CanUserResizeColumns="True">
 						<DataGrid.Columns>
@@ -358,6 +359,20 @@
 					</DataGrid>
 				</TabItem>
 			</TabControl>
+				<TabControl Name="testTab" Grid.Column="1" Items="{Binding Tabs}">
+					<TabControl.ItemTemplate>
+						<DataTemplate>
+							<TextBlock Text="{Binding Header}"/>
+						</DataTemplate>
+					</TabControl.ItemTemplate>
+					<TabControl.ContentTemplate>
+						<DataTemplate>
+							<ContentControl Content="{Binding Content}"></ContentControl>
+						</DataTemplate>
+					</TabControl.ContentTemplate>
+
+				</TabControl>
+			</Grid>
 		</ScrollViewer>
 		<StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Right">
 			<Button Content="Query Manager" Name="QueryButton" Margin="5" Height="30" Width="120"/>
@@ -365,6 +380,7 @@
 			<Button Content="Delete Row" Margin="5" Name="DeleteButton" Height="30" Width="120"/>
 			<Button Content="Save" Margin="5" Command="{Binding Save}" Height="30" Width="120"/>
 			<TextBlock Text="{Binding SaveError}"  Margin="5" Foreground="Red" HorizontalAlignment="Center" Height="30" Width="120"/>
+			<Button Name="test" Content="Добавить таб" />
 		</StackPanel>
 	</Grid>
 </Window>

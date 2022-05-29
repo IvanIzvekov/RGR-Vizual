@@ -17,5 +17,9 @@ namespace RGR_Visual
         public string Name { get; set; } = null!;
 
         public virtual ICollection<Race> Races { get; set; }
+        public static string GetAttr()
+        {
+            return "IDTournament";
+        }
     }
 }

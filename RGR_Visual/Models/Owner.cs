@@ -19,5 +19,9 @@ namespace RGR_Visual
         public string Name { get; set; } = null!;
 
         public virtual ICollection<Result> Results { get; set; }
+        public static string GetAttr()
+        {
+            return "IDOwner";
+        }
     }
 }

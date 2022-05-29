@@ -23,9 +23,12 @@ namespace RGR_Visual
         public string? Len { get; set; }
         public long? Laps { get; set; }
         public long? IdTournament { get; set; }
-        
 
         public virtual ICollection<Result> Results { get; set; }
         public virtual Tournament?  TournamentNavigation { get; set; }
+        public static string[] GetAttr()
+        {
+            return new[] { "IDRace" ,"Data", "Trace", "Cars", "Len", "Laps" };
+        }
     }
 }

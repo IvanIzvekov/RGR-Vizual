@@ -2,6 +2,7 @@ using System;
 using System.Collections.ObjectModel;
 using Microsoft.EntityFrameworkCore;
 using ReactiveUI;
+using RGR_Visual.Models;
 
 namespace RGR_Visual.ViewModels
 {
@@ -21,6 +22,7 @@ namespace RGR_Visual.ViewModels
 			Results = Db.Results.Local.ToObservableCollection();
 			Db.Tournaments.Load<Tournament>();
 			Tournaments = Db.Tournaments.Local.ToObservableCollection();
+			Tabs = new ObservableCollection<TabsC>();
 		}
 
 		string saveError = "";
@@ -39,6 +41,7 @@ namespace RGR_Visual.ViewModels
 		public ObservableCollection<Race> Races { get; }
 		public ObservableCollection<Result> Results { get; }
 		public ObservableCollection<Tournament> Tournaments { get; }
+		public ObservableCollection<TabsC> Tabs { get; }
 
 
 		public void AddRow(int index)

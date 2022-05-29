@@ -20,5 +20,9 @@ namespace RGR_Visual
         public string? Home { get; set; }
 
         public virtual ICollection<Result> Results { get; set; }
+        public static string[] GetAttr()
+        {
+            return new[] { "ID Driver", "Born", "Home" };
+        }
     }
 }

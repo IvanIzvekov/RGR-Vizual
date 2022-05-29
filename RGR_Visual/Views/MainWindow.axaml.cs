@@ -1,5 +1,9 @@
 using Avalonia.Controls;
 using RGR_Visual.ViewModels;
+using RGR_Visual.Models;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace RGR_Visual.Views
 {
@@ -19,6 +23,10 @@ namespace RGR_Visual.Views
                 OpenEditor();
             };
             context = new QueryManagerViewModel();
+            this.FindControl<Button>("test").Click += delegate
+            {
+                test1();
+            };
         }
 
         public void Delete()
@@ -49,6 +57,26 @@ namespace RGR_Visual.Views
         {
             editor = new QueryManager { DataContext = context };
             editor.Show();
+        }
+        public void CreateGrid(TabItemModel tab)
+        {
+            var context = this.DataContext as MainWindowViewModel;
+            DataGrid grid = new DataGrid();
+            foreach (string header in tab.DataGridHeaders)
+            {
+                var column = new DataGridTextColumn();
+                column.Header = header;
+                grid.Columns.Add(column);
+            }
+            TabsC item = new TabsC();
+            item.Header = tab.Header;
+            item.Content = grid;
+            context.Tabs.Add(item);
+            
+        }
+        public void test1()
+        {
+            CreateGrid(new TabItemModel { Header = "aaaa", DataGridHeaders = new System.Collections.ObjectModel.ObservableCollection<string>(new List<string> { "test1", "test2" }) });
         }
     }
 }
