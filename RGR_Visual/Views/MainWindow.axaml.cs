@@ -4,6 +4,7 @@ using RGR_Visual.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Reactive.Subjects;
 
 namespace RGR_Visual.Views
 {
@@ -20,12 +21,7 @@ namespace RGR_Visual.Views
             };
             this.FindControl<Button>("QueryButton").Click += delegate
             {
-                OpenEditor();
-            };
-            context = new QueryManagerViewModel();
-            this.FindControl<Button>("test").Click += delegate
-            {
-                test1();
+                OpenQuery();
             };
         }
 
@@ -53,12 +49,14 @@ namespace RGR_Visual.Views
                     break;
             }
         }
-        public void OpenEditor()
+        public void OpenQuery()
         {
+            var tmp = this.DataContext as MainWindowViewModel;
+            context = new QueryManagerViewModel(tmp);
             editor = new QueryManager { DataContext = context };
             editor.Show();
         }
-        public void CreateGrid(TabItemModel tab)
+        public void CreateGrid(TabItemModel tab, List<List<string>> test)
         {
             var context = this.DataContext as MainWindowViewModel;
             DataGrid grid = new DataGrid();
@@ -72,11 +70,6 @@ namespace RGR_Visual.Views
             item.Header = tab.Header;
             item.Content = grid;
             context.Tabs.Add(item);
-            
-        }
-        public void test1()
-        {
-            CreateGrid(new TabItemModel { Header = "aaaa", DataGridHeaders = new System.Collections.ObjectModel.ObservableCollection<string>(new List<string> { "test1", "test2" }) });
         }
     }
 }

@@ -19,7 +19,18 @@ namespace RGR_Visual
         public virtual ICollection<Race> Races { get; set; }
         public static string GetAttr()
         {
-            return "IDTournament";
+            return "Tournament: IDTournament";
+        }
+        public object? this[string property]
+        {
+            get
+            {
+                switch (property)
+                {
+                    case "IDTournament": return Id;
+                }
+                return null;
+            }
         }
     }
 }

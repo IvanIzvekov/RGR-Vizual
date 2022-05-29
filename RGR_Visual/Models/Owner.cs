@@ -18,10 +18,23 @@ namespace RGR_Visual
         public long Id { get; set; }
         public string Name { get; set; } = null!;
 
+        public object? this[string property]
+        {
+            get
+            {
+                switch (property)
+                {
+                    case "Id": return Id;
+                    case "Name": return Name;
+                }
+                return null;
+            }
+        }
+
         public virtual ICollection<Result> Results { get; set; }
         public static string GetAttr()
         {
-            return "IDOwner";
+            return "Owner: Id";
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RGR_Visual.Models;
+using System;
 using System.Collections.Generic;
 
 namespace RGR_Visual
@@ -27,7 +28,24 @@ namespace RGR_Visual
         public virtual Race? IdRaceNavigation { get; set; }
         public static string[] GetAttr()
         {
-            return new[] { "IDResult","StartPos", "FinishPos", "Number" };
+            return new[] { "Result: IDResult", "Result: IdDriver", "Result: IdRace", "Result: IdOwner", "Result: StartPos", "Result: FinishPos", "Result: Number" };
+        }
+        public object? this[string property]
+        {
+            get
+            {
+                switch (property)
+                {
+                    case "IDResult": return Id;
+                    case "IdDriver": return IdDriver;
+                    case "IdRace": return IdRace;
+                    case "IdOwner": return IdOwner;
+                    case "StartPos": return StartPos;
+                    case "FinishPos": return FinishPos;
+                    case "Number": return Number;
+                }
+                return null;
+            }
         }
     }
 }

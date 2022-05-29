@@ -28,7 +28,23 @@ namespace RGR_Visual
         public virtual Tournament?  TournamentNavigation { get; set; }
         public static string[] GetAttr()
         {
-            return new[] { "IDRace" ,"Data", "Trace", "Cars", "Len", "Laps" };
+            return new[] { "Race: IDRace", "Race: Date", "Race: Trace", "Race: Cars", "Race: Len", "Race: Laps" };
+        }
+        public object? this[string property]
+        {
+            get
+            {
+                switch (property)
+                {
+                    case "IDRace": return Id;
+                    case "Date": return Date;
+                    case "Trace": return Trace;
+                    case "Cars": return Cars;
+                    case "Len": return Len;
+                    case "Laps": return Laps;
+                }
+                return null;
+            }
         }
     }
 }

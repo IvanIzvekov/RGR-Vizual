@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Microsoft.EntityFrameworkCore;
 using ReactiveUI;
@@ -42,7 +43,7 @@ namespace RGR_Visual.ViewModels
 		public ObservableCollection<Result> Results { get; }
 		public ObservableCollection<Tournament> Tournaments { get; }
 		public ObservableCollection<TabsC> Tabs { get; }
-
+		public List<List<object>> QueryList { get; set; }
 
 		public void AddRow(int index)
 		{

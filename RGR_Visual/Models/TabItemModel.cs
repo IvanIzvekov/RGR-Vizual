@@ -10,6 +10,6 @@ namespace RGR_Visual.Models
     public class TabItemModel
     {
         public string Header { get; set; }
-        public ObservableCollection<string> DataGridHeaders { get; set; }
+        public List<string> DataGridHeaders { get; set; }
     }
 }

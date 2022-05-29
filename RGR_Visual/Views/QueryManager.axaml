@@ -19,7 +19,7 @@
 
 			</StackPanel>
 		</SplitView.Pane>
-		<Grid RowDefinitions="*,*,*" ColumnDefinitions="*,*,*,*" ShowGridLines="False">
+		<Grid RowDefinitions="*,*,*,*" ColumnDefinitions="*,*,*,*" ShowGridLines="False">
 			<TextBlock Text="Таблицы:" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 			<Grid RowDefinitions="Auto,*" Grid.Row="0" Grid.Column="1">
 				<TextBlock Text="Доступные:" Grid.Row="0"/>
@@ -50,11 +50,10 @@
 				<TextBlock Grid.Row="0" Text="Выбранные:" HorizontalAlignment="Center"/>
 				<ListBox Grid.Row="1" Items="{Binding ChosenRows}" SelectedItem="{Binding SelectedRowChosen}"/>
 			</Grid>
-			<ComboBox SelectedIndex="0" Grid.Row="2" Grid.Column="0">
-				<ComboBoxItem>Условие выборки</ComboBoxItem>
-				<ComboBoxItem>Группировать по:</ComboBoxItem>
-				<ComboBoxItem>Соединить с:</ComboBoxItem>
-			</ComboBox>
+			<ComboBox SelectedItem="{Binding SelectedRowForCondition}" Items="{Binding ChosenRows}" Grid.Row="2" Grid.Column="1"/>
+			<ComboBox Items="{Binding Operators}" SelectedItem="{Binding SelectedOperator}" Grid.Row="2" Grid.Column="2"/>
+			<TextBox Text="{Binding Condition}" Grid.Row="2" Grid.Column="3"/>
+			<Button Content="Выполнить запрос" Command="{Binding ExecuteQuery}" Grid.Row="3"/>
 		</Grid>
 	</SplitView>
 </Window>
