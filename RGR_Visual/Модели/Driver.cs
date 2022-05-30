@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace RGR_Visual.Models
 {
-    public partial class Driver : Table
+    public partial class Driver
     {
         public Driver()
         {
