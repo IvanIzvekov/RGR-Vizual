@@ -16,7 +16,6 @@ namespace RGR_Visual.ViewModels
 		public ObservableCollection<string> ChosenTables { get; }
 		public ObservableCollection<string> ChosenRows { get; }
 		public ObservableCollection<string> Rows { get; }
-		public Dictionary<string, object> DBTables { get; set; }
 		public ObservableCollection<string> Operators { get; }
 
 		string condition;
